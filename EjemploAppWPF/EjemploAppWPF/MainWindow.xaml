@@ -1,0 +1,41 @@
+﻿<Window x:Class="EjemploAppWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EjemploAppWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ComboBox x:Name="CB_Datos_Basico" HorizontalAlignment="Left" Margin="485,65,0,0" VerticalAlignment="Top" Width="270" SelectionChanged="CB_Datos_Basico_SelectionChanged"/>
+        <Label x:Name="LB_nombre" Content="Nombre" HorizontalAlignment="Left" Margin="485,92,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LB_apellidos" Content="Apellidos" HorizontalAlignment="Left" Margin="696,92,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TB_Binding" HorizontalAlignment="Left" Margin="219,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="LB_Binding" Content="{Binding ElementName=TB_Binding, Path=Text}" HorizontalAlignment="Left" Margin="68,50,0,0" VerticalAlignment="Top" BorderThickness="7,0,0,0" Background="#FF25E2D5"/>
+        <ComboBox x:Name="CB_Binding_Basico" ItemsSource="{Binding Path=listaDatos2}" HorizontalAlignment="Left" Margin="68,102,0,0" VerticalAlignment="Top" Width="225"/>
+        <Button x:Name="BT_Nuevo" Content="Nuevo Registro" HorizontalAlignment="Left" Margin="76,149,0,0" VerticalAlignment="Top" Click="BT_Nuevo_Click"/>
+        <DataGrid x:Name="DG_ColumnasTrue" Height="96" Margin="485,123,0,0" VerticalAlignment="Top" ItemsSource="{Binding Path=listaDatos}" AutoGenerateColumns="True" HorizontalAlignment="Left" Width="270"/>
+        <DataGrid x:Name="DG_ColumnasFalse" Height="94" Margin="485,238,45,0" VerticalAlignment="Top" ItemsSource="{Binding Path=listaDatos2}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="NOMBRE" Binding="{Binding Path=Nombre}"/>
+                <DataGridTextColumn Header="APELLIDO" Binding="{Binding Path=Apellidos}"/>
+                <DataGridTextColumn Header="CUMPLE" Binding="{Binding Path=Cumple}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="BT_CambiarNombre" Content="Cambiar Nombre" HorizontalAlignment="Left" Margin="660,351,0,0" VerticalAlignment="Top" Click="BT_Modificar_Click"/>
+        <Menu Height="19" VerticalAlignment="Top">
+            <MenuItem Header="Elemento">
+                <MenuItem x:Name="MI_AbrirDialog" Header="Abrir Dialog..." Click="MI_AbrirDialog_Click"/>
+            </MenuItem>
+        </Menu>
+        <DataGrid x:Name="DG_BindingLogica" HorizontalAlignment="Left" Height="94" Margin="68,201,0,0" VerticalAlignment="Top" Width="298" ItemsSource="{Binding Path=listaDatosLogica}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Path=Nombre}"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Path=Apellidos}"/>
+                <DataGridTextColumn Header="Cumple" Binding="{Binding Path=Cumple}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="BT_Modificar" Content="Modificar" HorizontalAlignment="Left" Margin="314,317,0,0" VerticalAlignment="Top" Click="BT_Modificar_Click_1" MouseEnter="BT_Modificar_MouseEnter" MouseLeave="BT_Modificar_MouseLeave"/>
+        <Image x:Name="I_Noice" Source="https://openseauserdata.com/files/971ad41de517bd16a620c0879b47bd13.jpg" HorizontalAlignment="Left" Height="100" Margin="180,300,0,0" VerticalAlignment="Top" Width="74"/>
+    </Grid>
+</Window>
